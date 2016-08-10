@@ -163,13 +163,12 @@
 ;; follow pattern above
 65536
 
-;;  Consider the following procedures, where A is the procedure defined above:
-(def (f n) (A 0 n))
-;; 
-(def (g n) (A 1 n))
-(def (h n) (A 2 n))
-(def (k n) (* 5 n n))
-
+;;  Consider the following procedures, where A is the procedure defined above.
 ;;  Give concise mathematical definitions for the functions computed by the
 ;;  procedures f , g , and h for positive integer values of n.
-;;  For example, (k n) computes 5n2.
+(def (f n) (A 0 n))
+;; is equivalant to: 2n
+(def (g n) (A 1 n))
+;; is equivalant to: 2^n
+(def (h n) (A 2 n))
+;; is equivalant to: 2^2^2...(n-1 times)
