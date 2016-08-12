@@ -16,15 +16,15 @@
   (testing "odd number elements"
     (is (= (mergesort [5 2 3 1 4]) [1 2 3 4 5]))))
 
-(deftest split-test
+(deftest split-middle-test
   (testing "empty"
-    (is (= (split []) [[] []])))
+    (is (= (split-middle []) [[] []])))
   (testing "one element"
-    (is (= (split [1]) [[1] []])))
+    (is (= (split-middle [1]) [[1] []])))
   (testing "even number elements"
-    (is (= (split [1 2 3 4]) [[1 2] [3 4]])))
+    (is (= (split-middle [1 2 3 4]) [[1 2] [3 4]])))
   (testing "odd number elements"
-    (is (= (split [1 2 3 4 5]) [[1 2 3] [4 5]]))))
+    (is (= (split-middle [1 2 3 4 5]) [[1 2 3] [4 5]]))))
 
 (deftest mysort-test
   (testing "empty"
