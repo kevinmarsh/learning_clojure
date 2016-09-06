@@ -22,14 +22,14 @@
 (defn vec-fn-builder [col]
    #(vector (first col) %))
 
-(defn cartesian-product-iter [set1 set2 result]
-  (if (empty? set1)
-    (set result)
-    (let [new-result (clojure.set/union (map (vec-fn-builder set1) set2) result)]
-      (recur (rest set1) set2 new-result))))
-
 (defn cartesian-product [set1 set2]
-  (cartesian-product-iter set1 set2 #{}))
+  (loop [set1 set1
+         set2 set2
+         result #{}]
+    (if (empty? set1)
+      (set result)
+      (let [new-result (clojure.set/union (map (vec-fn-builder set1) set2) result)]
+        (recur (rest set1) set2 new-result)))))
 
 ;; Looking at other people's solutions, it appears this is just baked into the language:
 

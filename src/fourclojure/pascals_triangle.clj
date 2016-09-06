@@ -6,31 +6,17 @@
 ;;   - Each successive row is computed by adding together adjacent numbers in the row above, and adding a 1 to the beginning and end of the row.
 ;; Write a function which returns the nth row of Pascal's Triangle.
 
-(defn iter-pascals-triangle [counter n_rows prev_row]
-  (if (> counter n_rows)
-      prev_row
-      (let [curr_row
-            (if (= counter 1)
-                [1]
-                (concat [1] (map + prev_row (rest prev_row)) [1]))]
-        (recur (inc counter) n_rows curr_row))))
-
-(defn pascals-triangle [n_rows]
-  (iter-pascals-triangle 0 n_rows []))
-
-;; Turned into a one liner for 4clojure
-
-(fn [n]
+(defn pascals-triangle [n]
   (loop [counter 0
          n_rows n
          prev_row []]
     (if (> counter n_rows)
-      prev_row
-      (let [curr_row
-            (if (= counter 1)
-                [1]
-                (concat [1] (map + prev_row (rest prev_row)) [1]))]
-        (recur (inc counter) n_rows curr_row)))))
+        prev_row
+        (let [curr_row
+              (if (= counter 1)
+                  [1]
+                  (concat [1] (map + prev_row (rest prev_row)) [1]))]
+          (recur (inc counter) n_rows curr_row)))))
 
 ;; Wow looking at cgrand's 4clojure solution, amazingingly concise
 
