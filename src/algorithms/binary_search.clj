@@ -1,5 +1,4 @@
-(ns algorithms.binary-search
-  (:require [clojure.math.numeric-tower :as math]))
+(ns algorithms.binary-search)
 
 (defn int-average [& numbers]
   (int (/ (apply + numbers) (count numbers))))
